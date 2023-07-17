@@ -140,7 +140,7 @@ def train_aggregate(dataset_name, model_index, clusters,
                     batch_size = 20, learning_rate = 5e-4):
     """
     calculate the risks/features for ensemble/aggregation
-
+聚类的风险/特征
     """
     base_path = '/home/cy/project/deepConvSurv/log/wsisa_patch10/convimgmodel'
     model_paths = ['{}_cluster{}_fold{}.pth'.format(base_path,c,model_index) for c in range(clusters)]

@@ -71,19 +71,19 @@ def kmeansClusterFit(data, kmeans):
             #output: (IDs, cluster, centroids)
             pred = kmeans.predict(data)
             return pred
-
+#返回聚类中心
 def kmeansClustering(data, n_cluster):
             #input: (IDs, features)
             #output: (IDs, cluster, centroids)
             kmeans = KMeans(n_clusters = n_cluster).fit(data)
             return kmeans
-
+#kmeans聚类
 def get_cluster_index(kmeansresult, c):
         outputindex = []
         outputindex = [i for i in range(len(list(kmeansresult)))
                      if list(kmeansresult)[i]==c ]
         return outputindex
-
+#聚类编号
 
 
 def patient_features(patch_df, selected_clusters, fea_dim = 32):
@@ -91,13 +91,15 @@ def patient_features(patch_df, selected_clusters, fea_dim = 32):
 
         It returns patient-wise features via aggregating the features of each
         separate patches.
-
+通过聚合分散的patch的特征返回病人级别的特征
         Args:
             patch_df: a pandas dataframe which contains columns of pid,
                 patch_fea, cluster,etc.
             selected_clusters: a list indicates which clusters have been selected
             fea_dim: feature dimensions for each cluster
-
+Patch df:一个pandas数据框架,包含pid、Patch tea、cluster等列。
+选中的聚类:一个列表显示哪些聚类已被选中
+每个聚类的特征维度
         Returns:
             patient_feas: a pandas dataframe contains: pid, surv, status and feas
         """
@@ -106,7 +108,7 @@ def patient_features(patch_df, selected_clusters, fea_dim = 32):
         surv = []
         status = []
         features = []
-
+#surv表示生存时间
         for p in patients:
             pid.append(p)
             surv.extend(list(set(patch_df[patch_df['pid']==p]['surv'])))

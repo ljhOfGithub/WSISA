@@ -15,7 +15,7 @@ from torch.utils.tensorboard import SummaryWriter
 # from tensorboardX import SummaryWriter
 
 # from sklearn.preprocessing import label_binarize
-
+#美国国家肺癌筛选试验的数据集是nlst
 # from dataloaders.feature_loader_surv import PatchFeature
 # from dataloaders.NLSTLoader import PatchFeature
 # from dataloaders.NLSTLoader_cluster import PatchFeature
