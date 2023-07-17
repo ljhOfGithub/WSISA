@@ -27,9 +27,9 @@ def tidy_cluster_result(kmeans_labels, label, index):
 def kmeansClusterFit_path(root_dir, path, kmeans, batch_size=256):
 
     num_batches = int(np.ceil(path.shape[0] / batch_size)) + 1
-
+#固定大小的patch
     pred_cluster_id = np.zeros(len(path))
-
+#预测用np数组
     for i in tqdm(range(num_batches)):
         batch_slice = slice(batch_size * i,
                             batch_size * (i + 1))
@@ -45,7 +45,7 @@ def kmeansClusterFit_path(root_dir, path, kmeans, batch_size=256):
 
             # convert a 2D image to a vector
             thumbnail = thumbnail.ravel().tolist()
-
+#为了将多维数组转换为 Python 列表对象
 
             x_batch.append(thumbnail)
         try:
